@@ -67,9 +67,9 @@ def pulp_fiction_actors
   # practice using joins
   # display the id and name of all actors in the movie Pulp Fiction
   # hint: use 'select', 'joins', 'where'
-  #why select('id, name')doesn't work?
+  #why select(:id, :name)doesn't need to specify the origin
   Actor
-    .select(:id, :name)
+    .select("actors.id, name")
     .joins(:movies)
     .where('title = ?', 'Pulp Fiction')
 end
