@@ -117,22 +117,31 @@ function merge(left,right){
 mergesort([2,5,1,3,7,3,9,0]);
 merge([2,5,8],[1,3,9]);
 
-// def mergesort(arr)
-//   return [] if arr.length == 0
-//   mid = arr.length / 2
-//   left = arr.take(mid)
-//   right = arr.drop(mid)
-//   merge(mergesort(left), mergesort(right))
-// end
-//
-// def merge(left, right)
-//   new_sub_arr = []
-//   until left.empty? && right.empty?
-//     if left.first <= right.first
-//       new_sub_arr << left.pop
-//     else
-//       new_sub_arr << right.pop
-//     end
-//   end
-//   return new_sub_arr
-// end
+function subsets(arr){
+  if (arr.length === 0){
+    return [[]];
+  }
+
+  const first = arr[0];
+  const withoutFirst = subsets(arr.slice(1));
+  const withFirst = withoutFirst.map(sub => [first].concat(sub));
+  return withFirst.concat(withoutFirst);
+}
+
+subsets([1,2]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
